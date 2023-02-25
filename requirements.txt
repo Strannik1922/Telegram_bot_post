@@ -1,0 +1,7 @@
+Django==2.2.19
+pytz==2021.1
+sqlparse==0.4.1
+python-telegram-bot==13.7
+flake8==5.0.4
+requests==2.26.0
+pyTelegramBotAPI==4.10.0
