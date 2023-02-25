@@ -10,11 +10,21 @@ bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(commands=['number'])
 def phone(message):
-    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    button_phone = types.KeyboardButton(text="Отправить номер", request_contact=True)
+    keyboard = types.ReplyKeyboardMarkup(
+        row_width=1,
+        resize_keyboard=True
+    )
+    button_phone = types.KeyboardButton(
+        text="Отправить номер",
+        request_contact=True
+    )
     keyboard.add(button_phone)
 
-    bot.send_message(message.chat.id, 'Привет, а дай номер', reply_markup=keyboard)
+    bot.send_message(
+        message.chat.id,
+        'Привет, а дай номер',
+        reply_markup=keyboard
+    )
 
 
 @bot.message_handler(content_types=['contact'])
@@ -42,7 +52,10 @@ def contact(message):
 @bot.message_handler(commands=['start'])
 def wake_up(message):
     name = message.chat.first_name
-    bot.send_message(message.chat.id, text='Спасибо, что активировал меня, {}! Введите команду number'.format(name))
+    bot.send_message(
+        message.chat.id,
+        text='Спасибо, что активировал меня, {}! Введите /number'.format(name)
+    )
 
 
 print('Bot started')
